@@ -1,16 +1,23 @@
 class Solution {
     public int maxIceCream(int[] costs, int coins) {
-        Arrays.sort(costs);
-        int count = 0;
-        for(int i=0;i<costs.length;i++){
-           if(costs[i]<=coins){
-            coins-=costs[i];
-            count++;
-           }
-           else{
-            break;
-           }
+        int[] freq = new int[100001];
+
+        // Count frequency of each cost
+        for (int cost : costs) {
+            freq[cost]++;
         }
+
+        int count = 0;
+
+        // Buy cheapest ice creams first
+        for (int cost = 1; cost <= 100000; cost++) {
+            while (freq[cost] > 0 && coins >= cost) {
+                coins -= cost;
+                freq[cost]--;
+                count++;
+            }
+        }
+
         return count;
     }
 }
