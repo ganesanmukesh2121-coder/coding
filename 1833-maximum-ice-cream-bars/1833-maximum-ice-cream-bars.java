@@ -1,16 +1,25 @@
 class Solution {
     public int maxIceCream(int[] costs, int coins) {
-        int[] freq = new int[100001];
+        int maxCost = 0;
 
-        // Count frequency of each cost
+        // Find the maximum cost
+        for (int cost : costs) {
+            if (cost > maxCost) {
+                maxCost = cost;
+            }
+        }
+
+        // Frequency array
+        int[] freq = new int[maxCost + 1];
+
         for (int cost : costs) {
             freq[cost]++;
         }
 
         int count = 0;
 
-        // Buy cheapest ice creams first
-        for (int cost = 1; cost <= 100000; cost++) {
+        // Buy the cheapest ice creams first
+        for (int cost = 1; cost <= maxCost && coins >= cost; cost++) {
             while (freq[cost] > 0 && coins >= cost) {
                 coins -= cost;
                 freq[cost]--;
