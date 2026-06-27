@@ -1,20 +1,16 @@
 class Solution {
     public int minStartValue(int[] nums) {
-        for(int i=1;i<Integer.MAX_VALUE;i++){
-            int sum = i; 
-            boolean flag = true;
-            for(int num:nums){
-                sum+=num;
-                if(sum<1){
-                    flag = false;
-                    break;
-                }
-            }
-            if(flag){
-                return i;
+        int sum = 0;
+        int minSum = 0;
+
+        for (int num : nums) {
+            sum += num;
+            if (sum < minSum) {
+                minSum = sum;
             }
         }
-        return 1;
+
+        return 1 - minSum;
     }
 }
 
