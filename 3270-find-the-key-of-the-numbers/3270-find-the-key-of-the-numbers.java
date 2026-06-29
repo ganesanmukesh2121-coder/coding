@@ -1,18 +1,25 @@
 class Solution {
     public int generateKey(int num1, int num2, int num3) {
-        String n1 = String.format("%04d",num1);
-        String n2 = String.format("%04d",num2);
-        String n3 = String.format("%04d",num3);
-        String min="";
-        for(int i=0;i<4;i++){
-            min += (char) Math.min(Math.min(n1.charAt(i), n2.charAt(i)),n3.charAt(i));
+        int place = 1;
+        int ans = 0;
+
+        for (int i = 0; i < 4; i++) {
+            int d1 = num1 % 10;
+            int d2 = num2 % 10;
+            int d3 = num3 % 10;
+
+            int min = Math.min(d1, Math.min(d2, d3));
+            ans += min * place;
+
+            place *= 10;
+            num1 /= 10;
+            num2 /= 10;
+            num3 /= 10;
         }
 
-         int result = Integer.parseInt(min.toString());
-
-         return result;
-        }
+        return ans;
     }
+}
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
