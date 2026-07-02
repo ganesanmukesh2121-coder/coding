@@ -1,13 +1,16 @@
 class Solution {
     public int finalValueAfterOperations(String[] operations) {
-        int X = 0;
-        for(String num:operations){
-            if(num.equals("++X")) ++X;
-            else if(num.equals("X++")) X++;
-            else if(num.equals("--X")) --X;
-            else X--;
+        int x = 0;
+
+        for (String op : operations) {
+            if (op.charAt(1) == '+') {
+                x++;
+            } else {
+                x--;
+            }
         }
-        return X;
+
+        return x;
     }
 }
 
