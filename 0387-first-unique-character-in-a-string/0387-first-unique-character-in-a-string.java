@@ -1,19 +1,17 @@
 class Solution {
     public int firstUniqChar(String s) {
-        char[] find = s.toCharArray();
-        
-        for(int i=0;i<find.length;i++){
-            boolean flag = true;
-            for(int j=0;j<find.length;j++){
-                if(find[i]==find[j] && i!=j){
-                   flag = false;
-                   break;
-                }
-            }
-            if(flag){
+        int[] freq = new int[26];
+
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) {
                 return i;
             }
         }
+
         return -1;
     }
 }
