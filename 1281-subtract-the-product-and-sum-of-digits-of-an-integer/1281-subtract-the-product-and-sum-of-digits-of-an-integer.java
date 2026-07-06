@@ -7,6 +7,8 @@ class Solution {
             pro*=n%10;
             n/=10;
         }
+
+        
         return pro-sum;
     }
 }
