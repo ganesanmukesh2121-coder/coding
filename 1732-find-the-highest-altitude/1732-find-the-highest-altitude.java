@@ -4,8 +4,8 @@ class Solution {
          int maxAltitude = 0;
 
       for (int g : gain) {
-    altitude += g;
-    maxAltitude = Math.max(maxAltitude, altitude);
+        altitude += g;
+        maxAltitude = Math.max(maxAltitude, altitude);
      }
 
        return maxAltitude;
