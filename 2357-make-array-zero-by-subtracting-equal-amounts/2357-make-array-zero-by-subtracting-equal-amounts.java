@@ -2,18 +2,24 @@ import java.util.Arrays;
 
 class Solution {
     public int minimumOperations(int[] nums) {
-        Arrays.sort(nums);
-
-        int count = 0;
-        int prev = 0;
-
-        for (int num : nums) {
-            if (num > 0 && num != prev) {
-                count++;
-                prev = num;
+        int max=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>max){
+                max=nums[i];
             }
         }
-
+        int fq[]= new int[max+1];
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=0){
+                fq[nums[i]]++;
+            }
+        }
+        int count=0;
+        for(int i=0;i<fq.length;i++){
+            if(fq[i]>0){
+                count++;
+            }
+        }
         return count;
     }
 }
