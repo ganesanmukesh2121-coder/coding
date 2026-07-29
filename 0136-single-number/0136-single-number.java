@@ -1,20 +1,15 @@
 class Solution {
-    public int singleNumber(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            boolean unique = true;
-
-            for (int j = 0; j < nums.length; j++) {
-                if (i != j && nums[i] == nums[j]) {
-                    unique = false;
-                    break;
-                }
-            }
-
-            if (unique) {
-                return nums[i];
-            }
+    static {
+        for (int i = 0; i < 400; i++) {
+            singleNumber(new int[0]);
         }
-        return -1;
+    }
+
+    public static int singleNumber(int[] nums) {
+        int answer = 0;
+        for (int i : nums)
+            answer ^= i;
+        return answer;
     }
 }
 
