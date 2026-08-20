@@ -1,9 +1,7 @@
 class Solution {
     public boolean isArraySpecial(int[] nums) {
         for(int i = 0 ; i < nums.length - 1 ; i++){
-            int n1 = nums[i] % 2 ;
-            int n2 = nums[i+1] % 2 ;
-            if(n1 == n2){
+            if(nums[i] % 2 == nums[i+1] % 2){
                 return false ;
             }
         }
