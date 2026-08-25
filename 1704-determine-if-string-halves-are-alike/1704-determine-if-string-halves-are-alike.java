@@ -1,14 +1,25 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-        String[] c = s.split("") ;
-        String v = "aeiouAEIOU" ;
-        int count1 = 0 ;
-        int count2 = 0 ;
-        for(int i = 0 , j = s.length() / 2 ; i < s.length() / 2 && j < c.length ; i++ , j++){
-            if(v.indexOf(c[i]) != -1) count1++ ;
-            if(v.indexOf(c[j]) != -1) count2++ ;
+        int size = s.length() / 2;
+        
+        String a = s.substring(0, size);
+        String b = s.substring(size);
+        
+        String vowel = "aeiouAEIOU";
+        int v_a = 0;
+        int v_b = 0;
+
+        for (int i = 0; i < size; i++) {
+            if (vowel.indexOf(a.charAt(i)) != -1) {
+                v_a++;
+            }
+            
+            if (vowel.indexOf(b.charAt(i)) != -1) {
+                v_b++;
+            }
         }
-        return count1 == count2 ;
+
+        return v_a == v_b;
     }
 }
 
