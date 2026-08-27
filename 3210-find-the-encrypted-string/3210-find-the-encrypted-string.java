@@ -1,7 +1,7 @@
 class Solution {
     public String getEncryptedString(String s, int k) {
-        int l = s.length() ;
-        return s.substring(k % l , l) + "" + s.substring(0 , k % l) ;
+        int l = s.length();
+        return s.substring(k%l,l)+""+s.substring(0,k%l);
     }
 }
 
